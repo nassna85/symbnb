@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créaton d'une annonce{% endblock %}
+
+{% form_theme form 'ad/_collection.html.twig' %} {# BLOCK N 1 IDENTIFIANT =>PERMET DE DECIDER LA FACON DONT NOUS VOULONS AFFICHER LE SOUS FORMULAIRE #}
+
+
+{% block body %}
+    <div class="container">
+        <h1>Créer une nouvelle annonce !</h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Créer la nouvelle annonce</button>
+        
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/ad.js"></script>
+{% endblock %}
