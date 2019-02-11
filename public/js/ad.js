@@ -22,7 +22,7 @@ function handleDeleteButtons()
     });
 }
 
-function updateCounter()
+function updateCounter()//Cette fonction sert pour la modification d'une annonce! sinon bug
 {
     const count = +$('#annonce_images div.form-group').length;
 

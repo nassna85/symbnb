@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ad;
 use App\Form\ImageType;
+use App\Form\ApplicationType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,33 +15,16 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class AnnonceType extends AbstractType
+class AnnonceType extends ApplicationType
 {
 
-    /**
-     * Permet d'avoir la configuration de base d'un champ !
-     *
-     * @param string $label
-     * @param string $placeholder
-     * @param array $options
-     * @return array
-     */
-    private function getConfiguration($label, $placeholder, $options = [])
-    {
-        return array_merge([
-            'label' => $label,
-            'attr' => [
-                'placeholder' => $placeholder
-            ]
-        ], $options);
-    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add(
                 'title', 
                 TextType::class, 
-                $this->getConfiguration("Titre", "Taper un super titre pour votre annonce !")
+                $this->getConfiguration("Titre *", "Taper un super titre pour votre annonce !")
             )
 
             ->add(
@@ -54,31 +38,31 @@ class AnnonceType extends AbstractType
             ->add(
                 'coverImage', 
                 UrlType::class, 
-                $this->getConfiguration("URL de l'image principale", "Donner l'adresse d'une image qui donne vraiment envie !")
+                $this->getConfiguration("URL de l'image principale *", "Donner l'adresse d'une image qui donne vraiment envie !")
             )
 
             ->add(
                 'introduction', 
                 TextType::class, 
-                $this->getConfiguration("Introduction", "Une petite description de votre annonce")
+                $this->getConfiguration("Introduction *", "Une petite description de votre annonce")
             )
 
             ->add(
                 'content', 
                 TextareaType::class, 
-                $this->getConfiguration("Description détaillée", "Indiquer une description qui donne vraiment envie de venir chez vous !")
+                $this->getConfiguration("Description détaillée *", "Indiquer une description qui donne vraiment envie de venir chez vous !")
             )
 
             ->add(
                 'rooms', 
                 IntegerType::class, 
-                $this->getConfiguration("Nombre de chambres", "Le nombre de chambres disponibles")
+                $this->getConfiguration("Nombre de chambres *", "Le nombre de chambres disponibles")
             )
             
             ->add(
                 'price', 
                 MoneyType::class, 
-                $this->getConfiguration("Prix par nuit", "Indiquer le prix que vous souhaitez pour une nuit")
+                $this->getConfiguration("Prix par nuit *", "Indiquer le prix que vous souhaitez pour une nuit")
             )
 
             ->add(
