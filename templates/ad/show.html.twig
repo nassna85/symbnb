@@ -14,6 +14,12 @@
                 <strong>{{ ad.rooms }} chambres</strong> pour <strong>{{ ad.price }}€</strong> par nuit
             </p>
             <a href="#" class="btn btn-primary">Réserver !</a>
+
+            {% if app.user and app.user == ad.author %}
+                <a href="{{ path('ads_edit', {'slug':ad.slug}) }}" class="btn btn-info btn-sm">Modifier l'annonce</a>
+
+                <a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger btn-sm" onclick="return confirm(`Êtes-vous sur de vouloir supprimer l'annonce : {{ ad.title }} ?`)">Supprimer l'annonce</a>
+            {% endif %}
         </div>
     </div>
 
@@ -62,7 +68,7 @@
                         <a href="{{ path('user_show', {'slug':a.slug}) }}" style="color: #1565C0;">
                             <h3>{{ a.fullName }}</h3>{#fullName -> function cré dans User.php#}
                         </a>
-                        <span class="badge badge-primary">{{ a.ads | length }} annonces</span>
+                        <span class="badge badge-info">{{ a.ads | length }} annonces</span>
                     </div>
                 </div>
 

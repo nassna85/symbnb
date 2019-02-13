@@ -14,8 +14,8 @@
                 <h1>{{ user.fullName }}</h1>
                 {% if user is same as(app.user) %} {#Permet de comparer 2 objets#}
                     <div class="mt-3">
-                        <a href="{{ path('account_profile') }}" class="btn btn-outline-info mr-2 mb-2">Modifier mes informations</a>
-                        <a href="{{ path('account_password') }}" class="btn btn-outline-info mb-2">Modifier mon mot de passe</a>
+                        <a href="{{ path('account_profile') }}" class="btn btn-info mr-2 mb-2">Modifier mes informations</a>
+                        <a href="{{ path('account_password') }}" class="btn btn-info mb-2">Modifier mon mot de passe</a>
                     </div>
                 {% endif %}
             </div>
