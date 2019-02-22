@@ -1,11 +1,17 @@
 div.container{
     margin-top: 20px;
 }
-
+/*PAGE D'UNE ANNONCE LA BANNIERE AVEC IMAGE*/
 div.ad-title{
     padding: 2em;
     background-size: cover;
     background-position: center center;
+}
+
+div.ad-title .btn{
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
 
 div.ad-title h1, div.ad-title p{
@@ -39,7 +45,43 @@ h4.card-title a{
     max-height: 24px;
 }
 
+.avatar-micro{
+    max-width: 20px;
+    max-height: 20px;
+}
+
 /*CALENDRIER RESERVATION*/
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
     color: firebrick !important;
+}
+
+/*PAGE D'UNE RESERVATION*/
+
+.alert a {
+    text-decoration: none;
+}
+
+.alert .btn{
+    color: #fff;
+}
+/*couleur étoile */
+
+span.rating i{
+    color: goldenrod;
+}
+
+/*PAGE D ACCUEIL*/
+@media screen and (min-width: 320px) and (max-width:375px)
+{
+    h1.display-3{
+        font-size: 2.8em;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width:414px)
+{
+    /*PAGE DE PROFIL USER*/
+    .account_user{
+        text-align: center;
+    }
 }

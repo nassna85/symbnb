@@ -35,7 +35,7 @@ class Booking
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Attention, la date d'arrivée doit être au bon format !")
-     * @Assert\GreaterThan("today", message="La date d'arrivée doit être ultérieure à la date d'aujourd'hui !")
+     * @Assert\GreaterThan("today", message="La date d'arrivée doit être ultérieure à la date d'aujourd'hui !", groups={"front"})
      */
     private $startDate;
 
@@ -65,6 +65,7 @@ class Booking
      * ON CREE UNE FONCTION POUR NOTRE CYCLE DE VIE pour la date et le montant
      * APPELE A CHAQUE FOIS QU'ON CREE UNE RESERVATION
      * @ORM\PrePersist
+     * @ORM\PreUpdate
      */
     public function  prePersist()
     {
